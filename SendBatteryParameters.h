@@ -9,10 +9,6 @@ using functionPtr = void (*)(std::string);
 typedef struct  {
     std::vector<float> SOC;
     std::vector<float> temperature;
-    float minimumSoc;
-    float maximumSoc;
-    float minumumTemperature;
-    float maximumTemperature;
 } batteryParameters;
 
 std::vector<float> generateRandomNumber( float, float);
