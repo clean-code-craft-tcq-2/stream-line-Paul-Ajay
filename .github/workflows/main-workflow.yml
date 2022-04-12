@@ -15,10 +15,16 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y gcovr
 
-    - name: build
-      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -fno-exceptions -fno-inline -o testchecker *.c*
+    - name: build sender
+      run: g++ -Wall -Wextra -fprofile-arcs SendParametersMain.cpp SendBatteryParameters.cpp -o sender 
       
-    - name: run
+    - name: run sender
+      run: ./sender
+
+    - name: build test cases
+      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage TestBatteryParametersSending.cpp SendBatteryParameters.cpp -o testchecker
+      
+    - name: run test cases
       run: ./testchecker
 
     - name: collect coverage
