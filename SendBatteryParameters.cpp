@@ -5,7 +5,7 @@ std::vector<float> generateRandomNumber(float minimumValue, float MaximumValue) 
     if (minimumValue >= MaximumValue) {
         return {};
     }
-    srand(static_cast<unsigned>(time(0)));
+    srand(static_cast<unsigned>(ftime(0)));
     for(int itr = 0; itr < COUNT_OF_READINGS; itr ++) {
         batteryPropertyVector.push_back(
             minimumValue + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX/(MaximumValue - minimumValue))));
