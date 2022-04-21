@@ -9,17 +9,20 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-
+      with:
+        python-version: '3.9'
     - name: install coverage tool
       run: |
         sudo apt-get update
         sudo apt-get install -y gcovr
+        python -m pip install --upgrade pip
+        pip install flake8
 
     - name: build sender
       run: g++ -Wall -Wextra -fprofile-arcs SendParametersMain.cpp SendBatteryParameters.cpp -o sender 
       
-    - name: run sender
-      run: ./sender
+    - name: run command redirection
+      run: ./sender | python receiveBatteryParameters.py
 
     - name: build test cases
       run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage TestBatteryParametersSending.cpp SendBatteryParameters.cpp -o testchecker
