@@ -46,6 +46,9 @@ jobs:
         path: ./*.html
         retention-days: 21
 
+    - name: create coverage artifact receiver
+      uses: actions/upload-artifact@v2
+      with:
         name: coverage2
         path: ./htmlcov
         retention-days: 21
