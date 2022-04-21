@@ -1,6 +1,9 @@
 # Streaming BMS Data
 
 This project is about sending and receiving BMS data.
+## Design diagram 
+
+![Alt text](diagram.png?raw=true "design_diagram")
 
 ## Decomposition
 
@@ -75,3 +78,5 @@ This section lists the minimum functionality of the Sender and Receiver.
 ## Quality Parameters
 
 Setup the quality parameters of your project (duplication, complexity, coverage, warnings) using GitHub workflow yml files.
+
+
